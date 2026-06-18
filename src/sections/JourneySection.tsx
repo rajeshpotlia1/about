@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const TIMELINE_ITEMS = [
   {
-    year: "2019–2024",
+    year: "2020–2025",
     institution: "IISER Mohali",
     role: "BS-MS, Physics",
     detail: "Built the foundation in physics and astronomy",
