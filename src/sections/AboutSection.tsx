@@ -9,7 +9,6 @@ export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
-  const statRefs = useRef<HTMLSpanElement[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,31 +41,6 @@ export default function AboutSection() {
           },
         });
       }
-
-      // Stats count-up animation
-      statRefs.current.forEach((statEl) => {
-        if (!statEl) return;
-        const isDecimal = statEl.dataset.suffix === "+";
-
-        gsap.from(statEl, {
-          textContent: 0,
-          duration: 1.5,
-          ease: "power2.out",
-          snap: { textContent: isDecimal ? 0.1 : 1 },
-          scrollTrigger: {
-            trigger: statEl,
-            start: "top 85%",
-          },
-          onUpdate: function () {
-            const val = parseFloat(statEl.textContent || "0");
-            if (isDecimal) {
-              statEl.textContent = Math.round(val) + "+";
-            } else {
-              statEl.textContent = String(Math.round(val));
-            }
-          },
-        });
-      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -141,7 +115,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right Column — Portrait & Stats */}
+        {/* Right Column — Portrait */}
         <div ref={rightRef} className="order-1 lg:order-2 flex flex-col items-center lg:items-start">
           {/* Portrait Frame */}
           <div className="portrait-frame relative border border-solar/10 rounded-[20px] p-3 max-w-[380px] w-full glow-amber">
@@ -155,47 +129,6 @@ export default function AboutSection() {
             </div>
             {/* Decorative pulse dot */}
             <div className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-solar animate-pulse-glow" />
-          </div>
-
-          {/* Stats Row */}
-          <div className="grid grid-cols-3 gap-4 mt-8 w-full max-w-[380px]">
-            <div className="text-center">
-              <span
-                ref={(el) => { if (el) statRefs.current[0] = el; }}
-                data-value="4"
-                data-suffix="+"
-                className="block font-sans font-semibold text-solar text-2xl"
-              >
-                0+
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.08em] text-stardust mt-1 block">
-                Conferences Organized
-              </span>
-            </div>
-            <div className="text-center border-x border-solar/10">
-              <span
-                ref={(el) => { if (el) statRefs.current[1] = el; }}
-                data-value="2025"
-                className="block font-sans font-semibold text-solar text-2xl"
-              >
-                0
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.08em] text-stardust mt-1 block">
-                PhD Started
-              </span>
-            </div>
-            <div className="text-center">
-              <span
-                ref={(el) => { if (el) statRefs.current[2] = el; }}
-                data-value="3"
-                className="block font-sans font-semibold text-solar text-2xl"
-              >
-                0
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.08em] text-stardust mt-1 block">
-                Institutions
-              </span>
-            </div>
           </div>
         </div>
       </div>
