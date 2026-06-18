@@ -6,31 +6,7 @@ import SectionLabel from "@/components/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PUBLICATIONS = [
-  {
-    title:
-      "A Subgrid Model for Multiphase Circumgalactic Medium in Cosmological Simulations",
-    authors: "R. Potlia, supervisors at IISc Bangalore",
-    journal: "MS Thesis, Indian Institute of Science",
-    year: "2025",
-    link: "#",
-  },
-  {
-    title: "The Gas-Galaxy Connection in Massive Spectroscopic Surveys",
-    authors: "R. Potlia, C. Peroux et al.",
-    journal: "In Preparation",
-    year: "2025",
-    link: "#",
-  },
-  {
-    title:
-      "Machine Learning Approaches to CGM Absorption System Classification",
-    authors: "R. Potlia et al.",
-    journal: "In Preparation",
-    year: "2025",
-    link: "#",
-  },
-];
+const PUBLICATIONS = [];
 
 export default function PublicationsSection() {
   const sectionRef = useRef<HTMLElement>(null);
