@@ -91,7 +91,7 @@ export default function ContactSection() {
         {/* Email CTA */}
         <div className="reveal-item mb-10">
           <a
-            href="mailto:rpotlia@eso.org"
+            href="mailto:rajesh@eso.org"
             className="inline-flex items-center gap-2 font-sans font-medium text-solar transition-all duration-300 hover:underline hover:underline-offset-4 hover:decoration-solar/30 group"
             style={{
               fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
@@ -106,7 +106,7 @@ export default function ContactSection() {
                 "0 0 30px rgba(245, 166, 35, 0.1)";
             }}
           >
-            rpotlia@eso.org
+            rajesh@eso.org
             <ArrowUpRight
               className="w-5 h-5 opacity-50 group-hover:opacity-100 transition-opacity"
               strokeWidth={1.5}
