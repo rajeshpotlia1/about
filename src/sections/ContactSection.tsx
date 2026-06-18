@@ -83,9 +83,7 @@ export default function ContactSection() {
         </h2>
 
         <p className="reveal-item text-stardust leading-relaxed mb-10">
-          I'm always excited to discuss the circumgalactic medium, galaxy
-          formation, or new collaboration ideas. Whether you're a fellow
-          astronomer, a student, or just curious about the cosmos — reach out.
+          I'm always excited to discuss about science or new collaboration ideas. Whether you're a fellow astronomer, a student, or just curious about the cosmos — reach out.
         </p>
 
         {/* Email CTA */}
