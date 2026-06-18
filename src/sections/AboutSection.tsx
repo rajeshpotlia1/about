@@ -87,14 +87,6 @@ export default function AboutSection() {
               medium — that vast, mysterious reservoir of gas surrounding
               galaxies.
             </p>
-
-            <p className="reveal-item text-stardust leading-[1.75] max-w-[520px]">
-              When I'm not debugging simulations or poring over survey data,
-              you'll find me helping organize conferences like VLT Beyond 2030,
-              AGN-FAAST, and the Exploring the Heavens symposium — bringing
-              together astronomers to share what we've learned about the
-              universe.
-            </p>
           </div>
 
           {/* Affiliation Badge */}
