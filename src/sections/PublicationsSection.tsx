@@ -6,8 +6,16 @@ import SectionLabel from "@/components/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const PUBLICATIONS = [];
 
+const PUBLICATIONS = [
+  {
+    year: "",
+    title: "Coming Soon",
+    authors: "",
+    journal: "",
+    link: "#",
+  },
+];
 export default function PublicationsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
