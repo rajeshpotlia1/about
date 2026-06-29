@@ -6,10 +6,18 @@ import SectionLabel from "@/components/SectionLabel";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type Publication = {
+  year: string;
+  title: string;
+  authors: string;
+  journal: string;
+  link: string;
+};
 
-const PUBLICATIONS = [
+
+const PUBLICATIONS: Publication[] = [
   {
-    year: "",
+    year: "—",
     title: "Coming Soon",
     authors: "",
     journal: "",
@@ -106,7 +114,7 @@ export default function PublicationsSection() {
                   />
                 </a>
                 <p className="text-stardust text-sm mt-2">
-                  {pub.authors.split("R. Potlia").map((part, idx, arr) => (
+                  {pub.authors.split("R. Potlia").map((part: string, idx: number, arr: string[]) => (
                     <span key={idx}>
                       {part}
                       {idx < arr.length - 1 && (
