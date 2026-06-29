@@ -72,7 +72,7 @@ export default function AboutSection() {
 
           <div className="space-y-5 mb-8">
             <p className="reveal-item text-stardust leading-[1.75] max-w-[520px]">
-              I am a a PhD researcher at the European Southern Observatory in
+              I am a PhD researcher at the European Southern Observatory in
               Garching, where I explore the gas-galaxy connection in massive
               surveys and develop multi-phase idealised simulations. My work sits
               at the intersection of observational astronomy and computational
