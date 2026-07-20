@@ -46,6 +46,7 @@ export default function CommunitySection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Header reveal
       const headers = sectionRef.current?.querySelectorAll(".reveal-header");
       if (headers) {
         gsap.from(headers, {
@@ -61,6 +62,7 @@ export default function CommunitySection() {
         });
       }
 
+      // Conference cards stagger
       if (cardsRef.current) {
         const cards = cardsRef.current.querySelectorAll(".conf-card");
         gsap.from(cards, {
@@ -84,10 +86,14 @@ export default function CommunitySection() {
     <section
       id="community"
       ref={sectionRef}
-      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-nebula-indigo"
+      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep"
     >
       <div className="max-w-[1200px] mx-auto">
-        <SectionLabel text="05 — COMMUNITY" className="reveal-header mb-6 block text-starlight" />
+        {/* Header */}
+        <SectionLabel
+          text="05 — COMMUNITY"
+          className="reveal-header mb-6 block"
+        />
         <h2
           className="reveal-header font-sans font-semibold text-starlight leading-tight mb-12"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
@@ -95,6 +101,7 @@ export default function CommunitySection() {
           News/Updates
         </h2>
 
+        {/* Conference Cards */}
         <div ref={cardsRef} className="space-y-4 max-w-[600px]">
           {CONFERENCES.map((conf, i) => (
             <div
