@@ -39,7 +39,7 @@ const CONFERENCES = [
 ];
 export default function CommunitySection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLUListElement>(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Header reveal
@@ -140,112 +140,6 @@ export default function CommunitySection() {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}    status: "upcoming" as const,
-  },
-];
-export default function CommunitySection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Header reveal
-      const headers = sectionRef.current?.querySelectorAll(".reveal-header");
-      if (headers) {
-        gsap.from(headers, {
-          y: 40,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-          clearProps: "opacity,transform",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            once: true,
-          },
-        });
-      }
-      // Conference cards stagger
-      if (cardsRef.current) {
-        const cards = cardsRef.current.querySelectorAll(".conf-card");
-        gsap.from(cards, {
-          y: 40,
-          opacity: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
-          clearProps: "opacity,transform",
-          scrollTrigger: {
-            trigger: cardsRef.current,
-            start: "top 90%",
-            once: true,
-          },
-        });
-      }
-
-      // Recalculate all ScrollTrigger positions once layout has settled
-      // (fonts, images, or content above this section can shift things
-      // after the initial mount, causing triggers to fire in the wrong place
-      // or be skipped entirely).
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-  return (
-    <section
-      id="community"
-      ref={sectionRef}
-      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep text-white"
-    >
-      <div className="max-w-[1200px] mx-auto">
-        {/* Header */}
-        <SectionLabel
-          text="05 — COMMUNITY"
-          className="reveal-header mb-6 block text-white"
-        />
-        <h2
-          className="reveal-header font-sans font-semibold text-white leading-tight mb-12"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
-        >
-          News/Updates
-        </h2>
-        {/* Conference Cards */}
-        <div ref={cardsRef} className="space-y-4 max-w-[600px]">
-          {CONFERENCES.map((conf, i) => (
-            <div
-              key={i}
-              className="conf-card bg-[#13102A] border border-solar/20 rounded-2xl p-6 transition-all duration-300 hover:border-solar/40"
-            >
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <h3 className="font-sans font-medium text-white text-base">
-                  {conf.name}
-                </h3>
-                <span
-                  className={`shrink-0 inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-mono ${
-                    conf.status === "upcoming"
-                      ? "bg-halo/10 text-halo"
-                      : "bg-stardust/10 text-stardust"
-                  }`}
-                >
-                  {conf.status}
-                </span>
-              </div>
-              <p className="text-white/80 text-sm">
-                {conf.role} — {conf.location}
-              </p>
-              {conf.chair && (
-                <p className="text-white/60 text-xs mt-1">
-                  Chair: {conf.chair}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
