@@ -12,31 +12,7 @@ const CONFERENCES = [
     chair: "Céline Peroux (co-chair)",
     status: "upcoming" as const,
   },
-  {
-    name: "AGN-FAAST Workshop",
-    year: "2026",
-    role: "Local Organizing Committee",
-    location: "ESO Garching",
-    chair: "Vincenzo Mainieri (chair)",
-    status: "upcoming" as const,
-  },
-  {
-    name: "Exploring the Heavens: ExpH Symposium",
-    year: "2026",
-    role: "Local Organizing Committee",
-    location: "ESO Garching",
-    chair: null,
-    status: "upcoming" as const,
-  },
-  {
-    name: "MAVIS 2026",
-    year: "2026",
-    role: "Local Organizing Committee",
-    location: "ESO Garching",
-    chair: null,
-    status: "upcoming" as const,
-  },
-];
+;
 export default function CommunitySection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLUListElement>(null);
