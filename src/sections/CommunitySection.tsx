@@ -2,9 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const CONFERENCES = [
   {
     name: "VLT Beyond 2030",
@@ -39,11 +37,9 @@ const CONFERENCES = [
     status: "upcoming" as const,
   },
 ];
-
 export default function CommunitySection() {
   const sectionRef = useRef<HTMLElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Header reveal
@@ -55,13 +51,14 @@ export default function CommunitySection() {
           duration: 0.8,
           stagger: 0.12,
           ease: "power3.out",
+          clearProps: "opacity,transform",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
+            once: true,
           },
         });
       }
-
       // Conference cards stagger
       if (cardsRef.current) {
         const cards = cardsRef.current.querySelectorAll(".conf-card");
@@ -71,17 +68,25 @@ export default function CommunitySection() {
           duration: 0.7,
           stagger: 0.12,
           ease: "power3.out",
+          clearProps: "opacity,transform",
           scrollTrigger: {
             trigger: cardsRef.current,
-            start: "top 75%",
+            start: "top 90%",
+            once: true,
           },
         });
       }
-    }, sectionRef);
 
+      // Recalculate all ScrollTrigger positions once layout has settled
+      // (fonts, images, or content above this section can shift things
+      // after the initial mount, causing triggers to fire in the wrong place
+      // or be skipped entirely).
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
+    }, sectionRef);
     return () => ctx.revert();
   }, []);
-
   return (
     <section
       id="community"
@@ -100,7 +105,6 @@ export default function CommunitySection() {
         >
           News/Updates
         </h2>
-
         {/* Conference Cards */}
         <div ref={cardsRef} className="space-y-4 max-w-[600px]">
           {CONFERENCES.map((conf, i) => (
