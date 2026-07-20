@@ -5,12 +5,12 @@ import SectionLabel from "@/components/SectionLabel";
 gsap.registerPlugin(ScrollTrigger);
 const CONFERENCES = [
   {
-    name: "VLT Beyond 2030",
-    year: "2026",
-    role: "Local Organizing Committee",
-    location: "ESO Garching",
-    chair: "Céline Peroux (co-chair)",
-    status: "upcoming" as const,
+    name: "Presented at 4MOST All Hands Meeting in Potsdam ",
+    year: "1-5 June 2026",
+    //role: "Local Organizing Committee",
+    //location: "ESO Garching",
+    //chair: "Céline Peroux (co-chair)",
+    //status: "upcoming" as const,
   },
 ;
 export default function CommunitySection() {
