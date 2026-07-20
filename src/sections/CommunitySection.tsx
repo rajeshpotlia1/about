@@ -16,10 +16,6 @@ interface Conference {
 
 const CONFERENCES: Conference[] = [
   {
-    name: "Presented at 4MOST All Hands Meeting",
-    year: "01-05 June 2026",
-  },
-  {
     name: "Expanding Horizons: What are the astronomical challenges of the 2040s",
     year: "13-17 July 2026",
     role: "Local Organizing Committee",
@@ -30,6 +26,10 @@ const CONFERENCES: Conference[] = [
     year: "06-10 July 2026",
     role: "Local Organizing Committee",
     location: "ESO Garching",
+  },
+  {
+    name: "Presented at 4MOST All Hands Meeting",
+    year: "01-05 June 2026",
   },
 ];
 export default function CommunitySection() {
