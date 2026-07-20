@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "About", target: "about" },
   { label: "Research", target: "research" },
   { label: "Publications", target: "publications" },
+  { label: "News", target: "news-updates" },
   { label: "Contact", target: "contact" },
 ];
 
