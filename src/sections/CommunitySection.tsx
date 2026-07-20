@@ -7,10 +7,10 @@ const CONFERENCES = [
   {
     name: "VLT Beyond 2030",
     year: "2026",
-    role: "Local Organizing Committee",
-    location: "ESO Garching",
-    chair: "Céline Peroux (co-chair)",
-    status: "upcoming" as const,
+    //role: "Local Organizing Committee",
+    //location: "ESO Garching",
+    //chair: "Céline Peroux (co-chair)",
+    //status: "upcoming" as const,
   },
   {
     name: "AGN-FAAST Workshop",
