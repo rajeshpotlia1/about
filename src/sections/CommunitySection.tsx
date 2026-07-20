@@ -46,8 +46,9 @@ export default function CommunitySection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Header reveal
       const headers = sectionRef.current?.querySelectorAll(".reveal-header");
-      if (headers?.length) {
+      if (headers) {
         gsap.from(headers, {
           y: 40,
           opacity: 0,
@@ -57,27 +58,24 @@ export default function CommunitySection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            once: true,
           },
         });
       }
 
+      // Conference cards stagger
       if (cardsRef.current) {
         const cards = cardsRef.current.querySelectorAll(".conf-card");
-        if (cards.length) {
-          gsap.from(cards, {
-            y: 40,
-            opacity: 0,
-            duration: 0.7,
-            stagger: 0.12,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 75%",
-              once: true,
-            },
-          });
-        }
+        gsap.from(cards, {
+          y: 40,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: "top 75%",
+          },
+        });
       }
     }, sectionRef);
 
@@ -91,7 +89,11 @@ export default function CommunitySection() {
       className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep"
     >
       <div className="max-w-[1200px] mx-auto">
-        <SectionLabel text="05 — COMMUNITY" className="reveal-header mb-6 block" />
+        {/* Header */}
+        <SectionLabel
+          text="05 — COMMUNITY"
+          className="reveal-header mb-6 block"
+        />
         <h2
           className="reveal-header font-sans font-semibold text-starlight leading-tight mb-12"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
@@ -99,6 +101,7 @@ export default function CommunitySection() {
           News/Updates
         </h2>
 
+        {/* Conference Cards */}
         <div ref={cardsRef} className="space-y-4 max-w-[600px]">
           {CONFERENCES.map((conf, i) => (
             <div
