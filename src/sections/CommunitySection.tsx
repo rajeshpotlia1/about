@@ -84,13 +84,10 @@ export default function CommunitySection() {
     <section
       id="community"
       ref={sectionRef}
-      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep"
+      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-nebula-indigo"
     >
       <div className="max-w-[1200px] mx-auto">
-        <SectionLabel
-          text="05 — COMMUNITY"
-          className="reveal-header mb-6 block text-starlight"
-        />
+        <SectionLabel text="05 — COMMUNITY" className="reveal-header mb-6 block text-starlight" />
         <h2
           className="reveal-header font-sans font-semibold text-starlight leading-tight mb-12"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
