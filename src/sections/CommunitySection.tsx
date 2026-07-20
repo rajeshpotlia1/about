@@ -86,16 +86,16 @@ export default function CommunitySection() {
     <section
       id="community"
       ref={sectionRef}
-      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep"
+      className="relative z-10 py-[clamp(80px,12vh,160px)] px-6 md:px-10 bg-space-deep text-white"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <SectionLabel
           text="05 — COMMUNITY"
-          className="reveal-header mb-6 block"
+          className="reveal-header mb-6 block text-white"
         />
         <h2
-          className="reveal-header font-sans font-semibold text-starlight leading-tight mb-12"
+          className="reveal-header font-sans font-semibold text-white leading-tight mb-12"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
         >
           News/Updates
@@ -109,7 +109,7 @@ export default function CommunitySection() {
               className="conf-card bg-[#13102A] border border-solar/20 rounded-2xl p-6 transition-all duration-300 hover:border-solar/40"
             >
               <div className="flex items-start justify-between gap-4 mb-2">
-                <h3 className="font-sans font-medium text-starlight text-base">
+                <h3 className="font-sans font-medium text-white text-base">
                   {conf.name}
                 </h3>
                 <span
@@ -122,11 +122,11 @@ export default function CommunitySection() {
                   {conf.status}
                 </span>
               </div>
-              <p className="text-stardust text-sm">
+              <p className="text-white/80 text-sm">
                 {conf.role} — {conf.location}
               </p>
               {conf.chair && (
-                <p className="text-stardust/60 text-xs mt-1">
+                <p className="text-white/60 text-xs mt-1">
                   Chair: {conf.chair}
                 </p>
               )}
