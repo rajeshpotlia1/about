@@ -3,30 +3,33 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SectionLabel from "@/components/SectionLabel";
 gsap.registerPlugin(ScrollTrigger);
-const CONFERENCES = [
+type ConferenceStatus = "upcoming" | "past";
+
+interface Conference {
+  name: string;
+  year: string;
+  role?: string;
+  location?: string;
+  chair?: string | null;
+  status?: ConferenceStatus;
+}
+
+const CONFERENCES: Conference[] = [
   {
     name: "Presented at 4MOST All Hands Meeting",
     year: "01-05 June 2026",
-    //role: "Local Organizing Committee",
-    //location: "ESO Garching",
-    //chair: "Céline Peroux (co-chair)",
-    //status: "upcoming" as const,
   },
   {
     name: "Expanding Horizons: What are the astronomical challenges of the 2040s",
     year: "13-17 July 2026",
     role: "Local Organizing Committee",
     location: "ESO Garching",
-    //chair: "Vincenzo Mainieri (chair)",
-    //status: "upcoming" as const,
   },
   {
     name: "AGN-FAAST Conference",
     year: "06-10 July 2026",
     role: "Local Organizing Committee",
     location: "ESO Garching",
-    //chair: "Vincenzo Mainieri (chair)",
-    //status: "upcoming" as const,
   },
 ];
 export default function CommunitySection() {
@@ -110,19 +113,24 @@ export default function CommunitySection() {
                   <h3 className="font-sans font-medium text-white text-base">
                     {conf.name}
                   </h3>
-                  <span
-                    className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-mono ${
-                      conf.status === "upcoming"
-                        ? "bg-halo/10 text-halo"
-                        : "bg-stardust/10 text-stardust"
-                    }`}
-                  >
-                    {conf.status}
-                  </span>
+                  {conf.status && (
+                    <span
+                      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] uppercase tracking-wider font-mono ${
+                        conf.status === "upcoming"
+                          ? "bg-halo/10 text-halo"
+                          : "bg-stardust/10 text-stardust"
+                      }`}
+                    >
+                      {conf.status}
+                    </span>
+                  )}
                 </div>
-                <p className="text-white/80 text-sm mt-1">
-                  {conf.role} — {conf.location}
-                </p>
+                <p className="text-white/60 text-xs mt-1">{conf.year}</p>
+                {(conf.role || conf.location) && (
+                  <p className="text-white/80 text-sm mt-1">
+                    {[conf.role, conf.location].filter(Boolean).join(" — ")}
+                  </p>
+                )}
                 {conf.chair && (
                   <p className="text-white/60 text-xs mt-1">
                     Chair: {conf.chair}
